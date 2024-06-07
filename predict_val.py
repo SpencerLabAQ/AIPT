@@ -18,8 +18,7 @@ def create_classifiers():
     OS_CNN_classifier = OSCNN()
     FCN_classifier = FCN()
 
-    # return [FCN_classifier, OS_CNN_classifier, rocket_classifier]
-    return [OS_CNN_classifier, rocket_classifier]
+    return [FCN_classifier, OS_CNN_classifier, rocket_classifier]
 
 def main():
     # Load the dataset

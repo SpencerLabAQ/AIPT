@@ -13,3 +13,24 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
+
+Run *preprocessing* and *training* phases:
+```shell
+bash run_training.sh
+```
+
+Run *application* phase:
+```shell
+bash run_application.sh
+```
+
+Generate tables and figures:
+```shell
+bash results.sh
+```
+
+### Experiments
+
+The models used in the paper have been implemented using:
+- OmniScale-CNN (https://github.com/Wensi-Tang/OS-CNN)
+- aeon ToolKit (https://github.com/aeon-toolkit/aeon)
