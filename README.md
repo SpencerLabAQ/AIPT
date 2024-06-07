@@ -5,6 +5,9 @@
 ---
 
 ### How to generate the tables and figures in the paper
+
+Install the latest version of Python3 (*tested with version 3.9.1*)
+
 Initialize the python execution environment:
 ```shell
 git clone https://github.com/SpencerLabAQ/AIPT.git
