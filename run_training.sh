@@ -2,9 +2,6 @@
 
 mkdir -p logs
 
-# extract the data from archive
-unzip data.zip
-
 # train models
 # --- we provide dumps of previously trained models in ./results/models/ in order to avoid the need to re-run the training from scratch ---
 # --- uncomment the following line to perform model training ---

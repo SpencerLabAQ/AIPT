@@ -32,8 +32,6 @@ def resample(df):
     # resample each fork
     return df.groupby(['benchmark_id', 'no_fork'], group_keys=False).apply(_resample)
 
-
-
 # split dataset into train and test sets
 def split(df, test_size=0.2, random_state=42):   
     # get benchmarks

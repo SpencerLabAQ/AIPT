@@ -28,9 +28,6 @@ class FCN:
         if not os.path.exists(dir):
             os.makedirs(dir)
         self.model_save_path = dir + "/fcn.h5"
-
-            
-
         print("FCN Classifier built")
 
     

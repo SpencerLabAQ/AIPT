@@ -13,16 +13,7 @@ from OmniScaleCNN.Classifiers.OS_CNN.OS_CNN_Structure_build import generate_laye
 from constants import BATCH_SIZE, EPOCHS, ES_PATIENCE
 
 '''
-This code contains a customized version of the OS_CNN_easy_use.py file from the OmniScaleCNN package.
-It runs on the Apple M1 chip, which is not supported by the original code.
-
-this ensures that the current MacOS version is at least 12.3+
-print(torch.backends.mps.is_available())
-
-this ensures that the current current PyTorch installation was built with MPS activated.
-print(torch.backends.mps.is_built())
-
-ref https://towardsdatascience.com/installing-pytorch-on-apple-m1-chip-with-gpu-acceleration-3351dc44d67c 
+This code contains a customized version of the OS_CNN_easy_use.py file from the OmniScaleCNN library.
 '''
 
 class OSCNN:

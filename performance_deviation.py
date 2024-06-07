@@ -22,8 +22,6 @@ def estimate_time(measurements):
         time += no_ops * avgt
     return time
 
-
-
 def process_benchmark(benchmark):
     print(f'Processing { benchmark }...')
     forks = pd.read_csv("./data/benchmarks.csv", index_col="benchmark_id")
@@ -33,7 +31,6 @@ def process_benchmark(benchmark):
 
     techniques = [ f"{t}_{bl}" for t in ai_techniques for bl in baselines]
     techniques += baselines
-
 
    # load timeseries
     timeseries = load_timeseries(benchmark)
