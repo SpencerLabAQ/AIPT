@@ -7,7 +7,7 @@
 ### How to generate the tables and figures in the paper
 
 #### Experimental Setup 
-Install the latest version of Python3 (*tested with version 3.9.1*)
+Install the latest version of **Python3** (*tested with version 3.9.1*)
 
 Initialize the python execution environment:
 ```shell
@@ -19,7 +19,8 @@ pip install -r requirements.txt
 ```
 
 #### Dataset
-Extract the data:
+The dataset used for the paper experiments is stored in the `data.zip` archive.
+Ensure that all the files contained in the archived are extracted in the `./data/` folder:
 ```shell
 unzip data.zip
 ```
