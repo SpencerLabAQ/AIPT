@@ -1,3 +1,19 @@
+# Custom paths
+results/predictions_val
+results/_tmp
+data
+results/predictions
+results/predictions_test
+results/cfg/OSCNN
+results/cfg/FCN
+results/cfg/Rocket
+results/*.csv
+
+tables/
+figures/
+logs/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
