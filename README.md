@@ -52,6 +52,14 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+Test the environment (python and some key packages):
+```shell
+python --version
+pip show pandas
+pip show torch
+pip show aeon
+```
+
 Extract the dataset from the `data.zip` archive.
 Ensure that all the files contained in the archived are extracted in the `./data/` folder:
 ```shell
