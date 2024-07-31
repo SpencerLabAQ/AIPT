@@ -17,6 +17,8 @@ Additionally, the field '*steady_state_starts*' comprises a list of data point i
 
 The archive also contains the *benchmarks.csv* file including some additional details about the JHM micrombenchmarks.
 
+> :exclamation: Due to the extensive duration required to run experiments with the full dataset, we provide a reduced version of the dataset to facilitate quicker replication and testing. This subset includes all representative features of the full dataset but with a smaller volume, enabling users to achieve similar results without the prolonged runtime. In the *Usage* section, we describe how to conduct the experiment using the reduced dataset.
+
 ---
 ### Requirements
 
@@ -30,8 +32,6 @@ The archive also contains the *benchmarks.csv* file including some additional de
 The time required to complete the experiments may vary based on the hardware used. The estimated time using the recommended hardware configuration is of two days.
 
 *Note: Using hardware with lower specifications may result in significantly longer times.*
-
-> :exclamation: Due to the extensive duration required to run experiments with the full dataset, we provide a reduced version of the dataset to facilitate quicker replication and testing. This subset includes all representative features of the full dataset but with a smaller volume, enabling users to achieve similar results without the prolonged runtime.
 
 #### Software Requirements
 - Python 3.9.1
