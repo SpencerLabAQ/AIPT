@@ -31,7 +31,7 @@ The time required to complete the experiments may vary based on the hardware use
 
 *Note: Using hardware with lower specifications may result in significantly longer times.*
 
-
+> :warning: Due to the extensive duration required to run experiments with the full dataset, we provide a reduced version of the dataset to facilitate quicker replication and testing. This subset includes all representative features of the full dataset but with a smaller volume, enabling users to achieve similar results without the prolonged runtime.
 
 #### Software Requirements
 - Python 3.9.1
