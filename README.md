@@ -35,7 +35,7 @@ The time required to complete the experiments may vary based on the hardware use
 
 #### Software Requirements
 - Python 3.9.1
-- Additional python dependencies are listed in *requirements.txt* file. Follow the experimental setup instruction to install all of them.
+- Additional python dependencies are listed in *requirements.txt* file. 
 
 ---
 ### Experimental Setup
@@ -78,7 +78,17 @@ unzip data.zip
 ### Usage
 
 #### Experiment pipeline
-Run *preprocessing* and *training* phases:
+
+Given the extensive time required to complete the training phase, we provide a dump of the already trained models, which are ready for use in running evaluations and future studies.
+
+You can train the models from scratch by uncommenting the line below in the [run_training.sh](run_training.sh) file:
+```bash
+python fit.py &> logs/fit.py
+```
+
+#### Running
+
+Run *training* and *evaluation*:
 ```shell
 bash run_training.sh
 ```
