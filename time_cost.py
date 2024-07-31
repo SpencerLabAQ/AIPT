@@ -44,6 +44,9 @@ def process_benchmark(benchmark):
         # if technique is a baseline then load associated configuration
         if technique in baselines:
             cfg = load_cfg(benchmark, technique)
+            if technique == "SOP":
+                no_fork = forks.loc[benchmark, "forks"]
+                cfg = cfg[:no_fork]
         # if technique is an AI technique then adapt the configuration relative to the baseline for fair comparison
         else:                
             technique_, baseline = technique.split("_")

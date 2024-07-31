@@ -5,28 +5,33 @@
 ---
 ### Dataset
 
-The dataset used in this paper has been presented in the paper:
+The dataset utilized in this paper is introduced in https://doi.org/10.1007/s10664-022-10247-x.
+It includes performance measurements from 500+ JMH microbenchmarks across 30 Java software systems.
 
-L. Traini et al., ***Towards effective assessment of steady state performance in Java software: are we there yet?*** Empirical Software Engineering 28, 1 (2022), 13. [DOI: 10.1007/s10664-022-10247-x](https://doi.org/10.1007/s10664-022-10247-x)
-
-It includes performance measurements from 586 JMH microbenchmarks across 30 Java software systems. 
-The `data.zip` archive contains dataset used for this work. Once extracted, the total size of the data archived in this repository is less than 500 Mb.
+The dataset has been directly included in this repository (`data.zip` archive). Once extracted, the total size of the data archived in this repository is less than 500 Mb.
 We distilled the timeseries data from the metadata related to the steady state and warm-up phases.
 Specifically, the archive contains the following folders:
-- *timeseries*: contains all the timeseries used in this work in JSON format. All the forks of a same microbenchmark have been included as a list in the same file.
-- *classification*: contains all the details related to the warm-up phases and steady state iterations in JSON format. Each file contains the '*forks*' field including a string indicating if the fork reached the steady state (*steady state*) or not (*no steady state*). In addition, the field '*steady_state_starts*' contains a list of datapoint indexes indicating for each fork the first iteration identified as *steady*, -1 if there are none.
+- *timeseries*: contains all the timeseries used in this work in JSON format. A single file pertains to a specific microbenchmark and includes time series data for all the associated forks.
+- *classification*: each file is structured in JSON format and holds comprehesive details about the warm-up phases and steady state iterations. The '*forks*' field in each file includes a string that indicates whether the fork reached the steady state ('*steady state*') or not ('*no steady state*'). 
+Additionally, the field '*steady_state_starts*' comprises a list of data point indexes; for each fork, it marks the first iteration identified as *steady*, -1 if no such iteration exists.
 
-The archive also contains the *benchmarks.csv* file including some additional details on JHM micrombenchmarks.
+The archive also contains the *benchmarks.csv* file including some additional details about the JHM micrombenchmarks.
 
 ---
 ### Requirements
 
 #### Recommended Hardware
 
-- **CPU**: Intel(R) Xeon(R), 2.30 GHz or faster
+- **CPU**: n=40, Intel(R) Xeon(R), 2.30 GHz or faster
 - **Memory (RAM)**: 64 GB or more
 - **Storage**: >= 30 GB free
 - **Operating System**: Linux Ubuntu 18.04
+
+The time required to complete the experiments may vary based on the hardware used. The estimated time using the recommended hardware configuration is of two days.
+
+*Note: Using hardware with lower specifications may result in significantly longer times.*
+
+
 
 #### Software Requirements
 - Python 3.9.1
@@ -35,24 +40,27 @@ The archive also contains the *benchmarks.csv* file including some additional de
 ---
 ### Experimental Setup
  
-Install the recommended/latest version of **Python3**.
+Install the recommended version of **Python 3**.
 
-Initialize the python execution environment:
+Open your terminal and run the following command to clone the repository:
 ```shell
 git clone https://github.com/SpencerLabAQ/AIPT.git
 cd AIPT
+```
 
+Initialize the python execution environment:
+```shell
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-Install all the dependencies:
+Install dependencies:
 ```shell
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Test the environment (python and some key packages):
+Test the environment, including Python and some essential packages:
 ```shell
 python --version
 pip show pandas
@@ -82,7 +90,7 @@ bash run_application.sh
 
 ### Generate all the figures and tables contained in this paper
 
-For sake of clarity, we present here how to generate individual results for each research question:
+For sake of clarity, we outline the method for generating specific results for each research question:
 
 #### RQ1: Classification of segments
 ```shell
@@ -117,5 +125,6 @@ The models used in the paper have been implemented using:
 - OmniScale-CNN (<a href="https://doi.org/10.48550/arXiv.2002.10061">Omni-Scale CNNs: a simple and effective kernel size configuration for time series classification</a>)
 - aeon ToolKit (https://github.com/aeon-toolkit/aeon)
 
----
-*The software and the data included in this repository are released under the MIT License.*
+### License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
