@@ -79,12 +79,13 @@ unzip data.zip
 
 #### Experiment pipeline
 
-Given the extensive time required to complete the training phase, we provide a dump of the already trained models, which are ready for use in running evaluations and future studies.
+Given the extensive time required to complete the training phase, we provide a dump of the already trained models ([results/models/](./results/models/)), which are ready for use in running evaluations and future studies.
 
 You can train the models from scratch by uncommenting the line below in the [run_training.sh](run_training.sh) file:
 ```bash
 python fit.py &> logs/fit.py
 ```
+and removing the [results/models/](./results/models/) folder. Otherwise, the provided checkpoints will be used to perform the evaluation.
 
 #### Running
 
