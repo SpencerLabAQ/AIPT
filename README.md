@@ -42,35 +42,27 @@ The time required to complete the experiments may vary based on the hardware use
  
 Install the recommended version of **Python 3**.
 
-Open your terminal and run the following command to clone the repository:
+Open your terminal and run the following commands:
 ```shell
+# Clone the repository
 git clone https://github.com/SpencerLabAQ/AIPT.git
 cd AIPT
-```
 
-Initialize the python execution environment:
-```shell
+# Initialize the python execution environment
 python3 -m venv .venv
 source .venv/bin/activate
-```
 
-Install dependencies:
-```shell
+# Install dependencies
 pip install --upgrade pip
 pip install -r requirements.txt
-```
 
-Test the environment, including Python and some essential packages:
-```shell
+# Test Python and some essential packages
 python --version
 pip show pandas
 pip show torch
 pip show aeon
-```
 
-Extract the dataset from the `data.zip` archive.
-Ensure that all the files contained in the archived are extracted in the `./data/` folder:
-```shell
+# Extract the dataset
 unzip data.zip
 ```
 
@@ -85,7 +77,7 @@ You can train the models from scratch by uncommenting the line below in the [run
 ```bash
 python fit.py &> logs/fit.py
 ```
-and removing the [results/models/](./results/models/) folder. Otherwise, the provided checkpoints will be used to perform the evaluation.
+and removing the [results/models/](./results/models/) folder. Otherwise, the provided checkpoints will be used to perform the evaluation avoiding to run the training from scratch.
 
 #### Running
 
