@@ -34,6 +34,8 @@ The time required to complete the experiments may vary based on the hardware use
 *Note: Using hardware with lower specifications may result in significantly longer times.*
 
 #### Software Requirements
+We do not provide a VM/Docker image for the working execution environment as our experiments don't require any non-trivial piece of software. Software required to run the experiments are:
+- You have installed Git (you can download it from [here](https://git-scm.com/downloads)) and unzip.
 - Python 3.9.1
 - Additional python dependencies are listed in *requirements.txt* file. 
 

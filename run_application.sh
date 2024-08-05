@@ -19,4 +19,4 @@ python wee.py &> logs/wee.log
 python time_cost.py &> logs/time_cost.log
 
 # generate Measurements Deviations
-python performance_deviation.py # &> logs/performance_deviation.log
+python performance_deviation.py &> logs/performance_deviation.log
