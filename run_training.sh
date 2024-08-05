@@ -5,7 +5,7 @@ mkdir -p logs
 # train models
 # --- we provide dumps of previously trained models in ./results/models/ in order to avoid the need to re-run the training from scratch ---
 # --- uncomment the following line to perform model training ---
-# python fit.py &> logs/fit.py
+# python fit.py &> logs/fit.log
 
 # generate predictions 
 python predict_val.py &> logs/predict_val.log

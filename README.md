@@ -17,25 +17,31 @@ Additionally, the field '*steady_state_starts*' comprises a list of data point i
 
 The archive also contains the *benchmarks.csv* file including some additional details about the JHM micrombenchmarks.
 
-> :exclamation: Due to the extensive duration required to run experiments with the full dataset, we provide a reduced version of the dataset to facilitate quicker replication and testing. This subset includes all representative features of the full dataset but with a smaller volume, enabling users to achieve similar results without the prolonged runtime. In the *Usage* section, we describe how to conduct the experiment using the reduced dataset.
+> :exclamation: Due to the extensive duration required to run experiments with the full dataset, we provide a reduced version of the dataset to facilitate quicker replication and testing. This subset includes all representative features of the full dataset but with a smaller volume, enabling users to achieve similar results without the prolonged runtime. Specifically, the small dataset includes a total of 15 JHM microbenchmarks related to 3 projects. The reduced version of the dataset has been uploaded in the `data_reduced.zip` archive.
+
+To run the experiments, extract the dataset with the following command:
+```shell
+unzip data.zip          # For the full dataset
+unzip data_reduced.zip  # For the reduced version of the dataset
+```
 
 ---
 ### Requirements
 
 #### Recommended Hardware
 
-- **CPU**: n=40, Intel(R) Xeon(R), 2.30 GHz or faster
+We conducted the **full version** of the experiments using the following hardware:
+
+- **CPU**: n=40, Intel(R) Xeon(R), 2.30 GHz
 - **Memory (RAM)**: 64 GB or more
 - **Storage**: >= 30 GB free
 - **Operating System**: Linux Ubuntu 18.04
 
-The time required to complete the experiments may vary based on the hardware used. The estimated time using the recommended hardware configuration is of two days.
-
-*Note: Using hardware with lower specifications may result in significantly longer times.*
+> The estimated time using the recommended hardware configuration is of two days. Using hardware with lower specifications may result in significantly longer times or potential errors. If the specified hardware configuration is unavailable, we recommend running the experiment with the reduced settings as outlined below. This may lead in oucomes that differ from those reported in the paper.
 
 #### Software Requirements
 We do not provide a VM/Docker image for the working execution environment as our experiments don't require any non-trivial piece of software. Software required to run the experiments are:
-- You have installed Git (you can download it from [here](https://git-scm.com/downloads)) and unzip.
+
 - Python 3.9.1
 - Additional python dependencies are listed in *requirements.txt* file. 
 
@@ -63,10 +69,16 @@ python --version
 pip show pandas
 pip show torch
 pip show aeon
-
-# Extract the dataset
-unzip data.zip
 ```
+
+---
+### Running the Experiment with Reduced Settings
+
+- Ensure you extract the reduced dataset (`unzip data_reduced.zip`) instead of the full version.
+- Reduce the number of training epochs by modifying the `constants.py` file: change `EPOCHS = 500` to `EPOCHS = 10`.
+- Reduce the number of bootstrap iterations of in `kalibera.py` file: change `BOOTSTRAP_ITERATIONS = 10000` to `BOOTSTRAP_ITERATIONS = 100`.
+
+The reduced version of the experiment took approximately 2 hours on a *MacBook Air (M1, 2020)*, **Processor:** Apple M1 chip with 8-core CPU, **Memory:** 16GB, **Operating System:** macOS Sonoma 14.5
 
 ---
 ### Usage
@@ -77,25 +89,25 @@ Given the extensive time required to complete the training phase, we provide a d
 
 You can train the models from scratch by uncommenting the line below in the [run_training.sh](run_training.sh) file:
 ```bash
-python fit.py &> logs/fit.py
+python fit.py &> logs/fit.log
 ```
 and removing the [results/models/](./results/models/) folder. Otherwise, the provided checkpoints will be used to perform the evaluation avoiding to run the training from scratch.
 
 #### Running
-
-Run *training* and *evaluation*:
 ```shell
+# Training and evaluation phases
 bash run_training.sh
-```
 
-Run *application* phase:
-```shell
+# Application phase
 bash run_application.sh
+
+# Generate results
+bash results.sh 
 ```
 
 ### Generate all the figures and tables contained in this paper
 
-For sake of clarity, we outline the method for generating specific results for each research question:
+For the sake of clarity, we outline the method for generating specific results for each research question:
 
 #### RQ1: Classification of segments
 ```shell
@@ -114,11 +126,6 @@ python rq23_estimation.py # Figure 4
 python rq3_tc_pd.py # Table 5
 python rq3_wee.py # Table 6
 python rq3_improvement.py # Table 7
-```
-
-[Shortcut] The following command can generate all the tables and figures in the paper:
-```shell
-bash results.sh 
 ```
 
 ---
