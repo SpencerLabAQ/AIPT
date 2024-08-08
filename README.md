@@ -1,8 +1,5 @@
-### Replication Package for the paper
+## AI-driven Java Performance Testing: Balancing Result Quality with Testing Time
 
-*AI-driven Java Performance Testing: Balancing Result Quality with Testing Time*
-
----
 ### Dataset
 
 The dataset utilized in this paper is introduced in https://doi.org/10.1007/s10664-022-10247-x.
@@ -29,20 +26,17 @@ unzip data_reduced.zip  # For the reduced version of the dataset
 ### Requirements
 
 #### Recommended Hardware
-
-We conducted the **full version** of the experiments using the following hardware:
-
-- **CPU**: n=40, Intel(R) Xeon(R), 2.30 GHz
-- **Memory (RAM)**: 64 GB or more
+- **Memory (RAM)**: >= 64 GB
 - **Storage**: >= 30 GB free
-- **Operating System**: Linux Ubuntu 18.04
 
-> The estimated time using the recommended hardware configuration is of two days. Using hardware with lower specifications may result in significantly longer times or potential errors. If the specified hardware configuration is unavailable, we recommend running the experiment with the reduced settings as outlined below. This may lead in oucomes that differ from those reported in the paper.
+The experiment can be executed entirely on a CPU. However, utilizing a GPU with CUDA can significantly speed up the process.
+
+> The estimated time using the recommended hardware configuration is of **two days**. Using hardware with lower specifications may result in significantly longer times or potential errors. If the specified hardware configuration is unavailable, we recommend running the experiment with the reduced settings as outlined below. This may lead in oucomes that differ from those reported in the paper.
 
 #### Software Requirements
 We do not provide a VM/Docker image for the working execution environment as our experiments don't require any non-trivial piece of software. Software required to run the experiments are:
 
-- Python 3.9.1
+- Python 3.9.1. Alternatively, you can use the *python:3.9-bookworm* docker image containing python 3.9.19.
 - Additional python dependencies are listed in *requirements.txt* file. 
 
 ---
@@ -105,27 +99,29 @@ bash run_application.sh
 bash results.sh 
 ```
 
+The successfull execution of the `run_training.sh` and `run_application.sh` scripts can be verified by the proper generation of the corresponding log files in the `./logs/` folder since the standard output (stdout) and standard error (stderr) from Python scripts are redirected to that folder. The `results.sh` is expected to generate all the related tables and figures, as specified in the comments of the script itself. 
+
 ### Generate all the figures and tables contained in this paper
 
-For the sake of clarity, we outline the method for generating specific results for each research question:
+The `bash results.sh` command generates all the results of this experiment in a single step. However, for clarity, we outline in this section how to generate specific results for each research question:
 
 #### RQ1: Classification of segments
 ```shell
-python rq1.py # Table 2
+python rq1.py # Table 2 --> tables/rq1.tex
 ```
 
 #### RQ2: AI-based framework compared to the state-of-practice (SOP)
 ```shell
-python rq2_wee.py # Table 3
-python rq2_improvement.py # Table 4
-python rq23_estimation.py # Figure 4
+python rq2_wee.py # Table 3 --> tables/rq2_wee.tex
+python rq2_improvement.py # Table 4 --> tables/rq2_impr.tex
+python rq23_estimation.py # Figure 4 --> figures/rq23_estimates.pdf
 ```
 
 #### RQ3: AI-based framework compared to the state-of-the-art (SOTA)
 ```shell
-python rq3_tc_pd.py # Table 5
-python rq3_wee.py # Table 6
-python rq3_improvement.py # Table 7
+python rq3_tc_pd.py # Table 5 --> tables/rq23_tc_pd.tex
+python rq3_wee.py # Table 6 --> tables/rq3_wee_{model}.tex
+python rq3_improvement.py # Table 7 --> tables/rq3_impr_{model}.tex
 ```
 
 ---
