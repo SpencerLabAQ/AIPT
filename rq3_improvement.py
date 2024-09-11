@@ -62,7 +62,7 @@ for model in models:
     labels = { "baseline": "\\textbf{Model \\emph{vs.} SOTA}",
             "impr": "\\textbf{Improvement (\\%)}",
                 "regr": "\\textbf{Regression (\\%)}",
-                "qual": "Meas. Quality", "time": "Time Cost",
+                "qual": "Res. Quality", "time": "Testing Time",
                 "tot": "\\textbf{\\textit{Total}}",
                 "net_impr": "\\textbf{Net Improvement (\\%)}",
                 "tot_diff": "(\\textbf{\\textit{Tot. Impr. - Tot. Regr.}})"}

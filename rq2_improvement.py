@@ -61,7 +61,7 @@ res[("", "clf")] += "  \emph{vs.} SOP"
 labels = { "clf": "\\textbf{Model \\emph{vs.} SOP}",
            "impr": "\\textbf{Improvement (\\%)}",
             "regr": "\\textbf{Regression (\\%)}",
-            "qual": "Meas. Quality", "time": "Time Cost",
+            "qual": "Res. Quality", "time": "Testing Time",
             "tot": "\\textbf{\\textit{Total}}",
             "net_impr": "\\textbf{Net Improvement (\\%)}",
             "tot_diff": "(\\textbf{\\textit{Tot. Impr. - Tot. Regr.}})"}

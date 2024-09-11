@@ -42,7 +42,7 @@ df_pd = df_pd.loc[rows_order]
 
 df = pd.concat([df_pd['Median (IQR)'], df_tc['Median (IQR)']], axis=1)
 
-df.columns = ["Rel. Meas. Dev. (\%)", "Time Cost (sec)"]
+df.columns = ["Rel. Meas. Dev. (\%)", "Testing Time (sec)"]
 
 
 df.to_latex(f"./tables/rq23_tc_pd.tex", float_format="%.0f",  multicolumn_format="c", index=True, column_format="lcc")

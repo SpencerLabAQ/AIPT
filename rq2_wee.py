@@ -57,7 +57,7 @@ res['p'] = res['p'].apply(lambda x: x if x >= 0.001 else "$<$0.001")
 res["clf"] += " \emph{vs.} SOP"
 
 #format columns
-labels = { "p": "$p$-value", "A12": "\\vda", "r": "$r$", "clf": "\\textbf{Model \\emph{vs.} SOP}"}
+labels = { "p": "$p$-value", "A12": "A12", "r": "$r$", "clf": "\\textbf{Model \\emph{vs.} SOP}"}
 #index = [("", "\\textbf{Model}")] + [("\\textbf{Model \\emph{vs.} SOP}", labels[c]) for c in res.columns if c != "clf"]
 #res.columns =pd.MultiIndex.from_tuples(index)
 res.rename(columns=labels, inplace=True)

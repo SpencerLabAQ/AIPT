@@ -60,7 +60,7 @@ for model in models:
     res["baseline"] = model + " \emph{vs.} " + res["baseline"]
 
     #format columns
-    labels = { "p": "$p$-value", "A12": "\\vda", "r": "$r$", "baseline": "\\textbf{Model \\emph{vs.} SOTA}"}
+    labels = { "p": "$p$-value", "A12": "A12", "r": "$r$", "baseline": "\\textbf{Model \\emph{vs.} SOTA}"}
     #index = [("", "\\textbf{Model}")] + [("\\textbf{Model \\emph{vs.} SOP}", labels[c]) for c in res.columns if c != "clf"]
     #res.columns =pd.MultiIndex.from_tuples(index)
     res.rename(columns=labels, inplace=True)

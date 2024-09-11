@@ -14,7 +14,8 @@ Additionally, the field '*steady_state_starts*' comprises a list of data point i
 
 The archive also contains the *benchmarks.csv* file including some additional details about the JHM micrombenchmarks.
 
-> :exclamation: Due to the extensive duration required to run experiments with the full dataset, we provide a reduced version of the dataset to facilitate quicker replication and testing. This subset includes all representative features of the full dataset but with a smaller volume, enabling users to achieve similar results without the prolonged runtime. Specifically, the small dataset includes a total of 15 JHM microbenchmarks related to 3 projects. The reduced version of the dataset has been uploaded in the `data_reduced.zip` archive.
+> :exclamation: Due to the extensive duration required to run experiments with the full dataset, we provide a reduced version of the dataset to facilitate quicker replication and testing. This subset includes all representative features of the full dataset but with a smaller volume, enabling users to run the experimental pipeline without the prolonged runtime. Specifically, the small dataset includes a total of 15 JHM microbenchmarks related to 3 projects. The reduced version of the dataset has been uploaded in the `data_reduced.zip` archive.
+**All the results obtained with the reduced version of the dataset differ considerably from those using the full version of the dataset.**
 
 To run the experiments, extract the dataset with the following command:
 ```shell
@@ -71,6 +72,10 @@ pip show aeon
 - Ensure you extract the reduced dataset (`unzip data_reduced.zip`) instead of the full version.
 - Reduce the number of training epochs by modifying the `constants.py` file: change `EPOCHS = 500` to `EPOCHS = 10`.
 - Reduce the number of bootstrap iterations of in `kalibera.py` file: change `BOOTSTRAP_ITERATIONS = 10000` to `BOOTSTRAP_ITERATIONS = 100`.
+- Instead of using model checkpoints with the full dataset, train the model from scratch by:
+    - uncommenting the line `python fit.py &> logs/fit.log` in the [run_training.sh](run_training.sh) file and
+    - removing the [results/models/](./results/models/) folder. 
+    (Detailed instructions are in the following *Usage* section).
 
 The reduced version of the experiment took approximately 2 hours on a *MacBook Air (M1, 2020)*, **Processor:** Apple M1 chip with 8-core CPU, **Memory:** 16GB, **Operating System:** macOS Sonoma 14.5
 
@@ -79,13 +84,18 @@ The reduced version of the experiment took approximately 2 hours on a *MacBook A
 
 #### Experiment pipeline
 
-Given the extensive time required to complete the training phase, we provide a dump of the already trained models ([results/models/](./results/models/)), which are ready for use in running evaluations and future studies.
+Given the extensive time required to complete the training phase, we provide a dump of the already trained models ([results/models/](./results/models/)) with the **full dataset**, which are ready for use in running evaluations and future studies. 
 
-You can train the models from scratch by uncommenting the line below in the [run_training.sh](run_training.sh) file:
+With the default settings, the provided checkpoints will be used to perform the evaluation avoiding to run the training from scratch. 
+In the following subsection, we provide instructions on how to train the models from scratch.
+
+##### Model Training from scratch
+
+You can train the models from scratch by **uncommenting** the line below in the [run_training.sh](run_training.sh) file:
 ```bash
 python fit.py &> logs/fit.log
 ```
-and removing the [results/models/](./results/models/) folder. Otherwise, the provided checkpoints will be used to perform the evaluation avoiding to run the training from scratch.
+and **removing** the [results/models/](./results/models/) folder. 
 
 #### Running
 ```shell
